@@ -28,7 +28,7 @@ nerd_fonts() {
 
 nerd_fonts SpaceMono
 
-/usr/local/bin/elvish
+export PATH=~/.asdf/bin:~/.asdf/shims:$PATH
 asdf plugin add direnv
 asdf install direnv latest
 asdf global direnv latest

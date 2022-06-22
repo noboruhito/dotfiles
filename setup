@@ -21,11 +21,19 @@ brew install --cask wezterm
 nerd_fonts() {
   git clone --branch=master --depth=1 https://github.com/ryanoasis/nerd-fonts.git
   cd nerd-fonts
-  ./install.sh
+  ./install.sh $1
   cd ..
   rm -rf nerd-fonts
 }
 
 nerd_fonts SpaceMono
+
+/usr/local/bin/elvish
+asdf plugin add direnv
+asdf install direnv latest
+asdf global direnv latest
+asdf plugin add chezmoi
+asdf install chezmoi latest
+asdf global chezmoi latest
 
 exit 0

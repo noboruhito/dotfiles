@@ -11,11 +11,11 @@ export XDG_DATA_HOME=~/.local
 export XDG_STATE_HOME=~/.local/state
 
 mkdir -p ~/.config ~/.cache ~/.local/share ~/.local/state
+ln -s ~/dotfiles/chezmoi ~/.local/share/chezmoi
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install chezmoi elvish starship gh ripgrep
 brew install --cask wezterm
-chsh -s /usr/local/bin/elvish
 
 nerd_fonts() {
   git clone --branch=master --depth=1 https://github.com/ryanoasis/nerd-fonts.git

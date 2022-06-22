@@ -21,7 +21,7 @@ brew install --cask wezterm
 nerd_fonts() {
   git clone --branch=master --depth=1 https://github.com/ryanoasis/nerd-fonts.git
   cd nerd-fonts
-  ./install.sh $1
+  ./install.sh "$1"
   cd ..
   rm -rf nerd-fonts
 }

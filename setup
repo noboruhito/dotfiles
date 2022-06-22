@@ -1,0 +1,31 @@
+#!/bin/bash
+set -euxo pipefail
+
+cd "$(dirname "$0")"
+
+test -t 0 && sudo -v
+
+export XDG_CONFIG_HOME=~/.config
+export XDG_CACHE_HOME=~/.cache
+export XDG_DATA_HOME=~/.local
+export XDG_STATE_HOME=~/.local/state
+
+mkdir -p ~/.config ~/.cache ~/.local/share ~/.local/state
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install chezmoi elvish starship gh ripgrep
+brew install --cask wezterm
+echo "/usr/local/bin/elvish" >> /etc/shells
+chsh -s /usr/local/bin/elvish
+
+nerd_fonts() {
+  git clone --branch=master --depth=1 https://github.com/ryanoasis/nerd-fonts.git
+  cd nerd-fonts
+  ./install.sh
+  cd ..
+  rm -rf nerd-fonts
+}
+
+nerd_fonts
+
+exit 0

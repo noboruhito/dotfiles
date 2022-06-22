@@ -26,6 +26,6 @@ nerd_fonts() {
   rm -rf nerd-fonts
 }
 
-nerd_fonts
+nerd_fonts SpaceMono
 
 exit 0

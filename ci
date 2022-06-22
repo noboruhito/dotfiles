@@ -8,7 +8,7 @@ if ! command -v shellcheck > /dev/null; then
   exit 2
 fi
 
-files=$(git ls-files -s | grep 755 | awk '{ print $4 }')
+files=$(git ls-files -s | awk '{ print $4 }')
 for f in $files; do
   shellcheck -x "$f"
 done

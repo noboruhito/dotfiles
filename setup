@@ -14,7 +14,8 @@ mkdir -p ~/.config ~/.cache ~/.local/share ~/.local/state
 ln -s ~/dotfiles/chezmoi ~/.local/share/chezmoi
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install chezmoi elvish starship gh ripgrep
+brew install shellcheck chezmoi elvish starship gh ripgrep
+echo "Please do '/usr/local/bin/elvish >> /etc/shells and chsh -s /usr/local/bin/elvish'"
 brew install --cask wezterm
 
 nerd_fonts() {

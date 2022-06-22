@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euxo pipefail
+
+cmd="$(basename "${BASH_SOURCE[0]}")"
+cd "$(dirname "$0")/.."
+if ! command -v shellcheck > /dev/null; then
+  echo "$cmd: shellcheck is required" >& 2
+  exit 2
+fi
+
+files=$(git ls-files -s | grep 755 | awk '{ print $4 }')
+for f in $files; do
+  shellcheck -x "$f"
+done
+

@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 cmd="$(basename "${BASH_SOURCE[0]}")"
-cd "$(dirname "$0")/.."
+#cd "$(dirname "$0")/.."
 if ! command -v shellcheck > /dev/null; then
   echo "$cmd: shellcheck is required" >& 2
   exit 2
@@ -10,6 +10,6 @@ fi
 
 files=$(git ls-files -s | awk '{ print $4 }')
 for f in $files; do
-  shellcheck -x "$f"
+  shellcheck -x -e SC2148,SC2215,SC1035,SC1072,SC1073,SC1064,SC1065 "$f"
 done
 
